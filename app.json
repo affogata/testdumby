@@ -1,0 +1,36 @@
+{
+  "name": "TestDumby",
+  "description": "Herein is disaster.",
+  "repository": "https://github.com/affogata/test_dumby",
+  "scripts": {
+    "postdeploy": "bundle exec rake bootstrap:staging",
+    "pr-predestroy": "bundle exec rake cleanup"
+  },
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "standard-1x"
+    }
+  },
+  "image": "heroku/ruby",
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku-community/apt",
+      "url": "https://github.com/affogata/heroku-buildpack-ruby"
+    }
+  ],
+}
