@@ -40,9 +40,5 @@
       "url": "heroku-community/apt",
       "url": "https://github.com/affogata/heroku-buildpack-ruby"
     }
-  ],
-  "scripts": {
-    "postdeploy": "bundle exec rake affogata:created",
-    "pr-predestroy": "bundle exec rake cleanup"
-  }
+  ]
 }
