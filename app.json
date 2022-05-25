@@ -27,8 +27,6 @@
     }
   },
   "image": "heroku/ruby",
-  "addons": [{
-  }],
   "buildpacks": [{
     "url": "heroku-community/apt"
   },
