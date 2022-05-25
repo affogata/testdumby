@@ -1,7 +1,15 @@
 {
-  "name": "TestDumby",
-  "description": "Herein is disaster.",
-  "repository": "https://github.com/affogata/test_dumby",
+  "name": "Small Sharp Tool",
+  "description": "This app does one little thing, and does it well.",
+  "keywords": [
+    "productivity",
+    "HTML5",
+    "scalpel"
+  ],
+  "website": "https://small-sharp-tool.com/",
+  "repository": "https://github.com/affogata/testdumby",
+  "logo": "https://small-sharp-tool.com/logo.svg",
+  "success_url": "/welcome",
   "scripts": {
     "postdeploy": "bundle exec rake bootstrap:staging",
     "pr-predestroy": "bundle exec rake cleanup"
@@ -26,6 +34,11 @@
   },
   "image": "heroku/ruby",
   "addons": [
+    "openredis",
+    {
+      "plan": "mongolab:shared-single-small",
+      "as": "MONGO"
+    },
     {
       "plan": "heroku-postgresql",
       "options": {
@@ -39,4 +52,11 @@
       "url": "https://github.com/affogata/heroku-buildpack-ruby"
     }
   ],
+  "environments": {
+    "test": {
+      "scripts": {
+        "test": "bundle exec rake test"
+      }
+    }
+  }
 }
