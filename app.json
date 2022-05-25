@@ -11,20 +11,14 @@
   "logo": "https://small-sharp-tool.com/logo.svg",
   "success_url": "/welcome",
   "scripts": {
-    "postdeploy": "bundle exec rake bootstrap:staging",
-    "pr-predestroy": "bundle exec rake cleanup"
+    "postdeploy": "bundle exec rake affogata:created",
+    "pr-predestroy": "bundle exec rake affogata:destroyed"
   },
   "env": {
     "SECRET_TOKEN": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
     },
-    "HEROKU_APP_NAME": {
-      "required": true
-    },
-    "HEROKU_PARENT_APP_NAME": {
-      "required": true
-    }
   },
   "formation": {
     "web": {
@@ -34,11 +28,6 @@
   },
   "image": "heroku/ruby",
   "addons": [
-    "openredis",
-    {
-      "plan": "mongolab:shared-single-small",
-      "as": "MONGO"
-    },
     {
       "plan": "heroku-postgresql",
       "options": {
@@ -52,11 +41,8 @@
       "url": "https://github.com/affogata/heroku-buildpack-ruby"
     }
   ],
-  "environments": {
-    "test": {
-      "scripts": {
-        "test": "bundle exec rake test"
-      }
-    }
+  "scripts": {
+    "postdeploy": "bundle exec rake affogata:created",
+    "pr-predestroy": "bundle exec rake cleanup"
   }
 }
