@@ -18,7 +18,7 @@
     "SECRET_TOKEN": {
       "description": "A secret key for verifying the integrity of signed cookies.",
       "generator": "secret"
-    },
+    }
   },
   "formation": {
     "web": {
@@ -27,22 +27,11 @@
     }
   },
   "image": "heroku/ruby",
-  "addons": [
+  "buildpacks": [{
+    "url": "heroku-community/apt"
+  },
     {
-      "plan": "heroku-postgresql",
-      "options": {
-        "version": "9.5"
-      }
-    }
-  ],
-  "buildpacks": [
-    {
-      "url": "heroku-community/apt",
       "url": "https://github.com/affogata/heroku-buildpack-ruby"
     }
-  ],
-  "scripts": {
-    "postdeploy": "bundle exec rake affogata:created",
-    "pr-predestroy": "bundle exec rake cleanup"
-  }
+  ]
 }
