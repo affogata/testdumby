@@ -30,4 +30,4 @@ end
 
 
 gem 'http'
-gem 'affogata_love_muffins'
+gem 'affogata_love_muffins', '~> 0.9.9'
