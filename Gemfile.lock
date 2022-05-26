@@ -68,7 +68,7 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
-    affogata_love_muffins (0.6.9)
+    affogata_love_muffins (0.9.9)
       rails (>= 4)
     builder (3.2.4)
     concurrent-ruby (1.1.10)
@@ -192,7 +192,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  affogata_love_muffins (~> 0.6.9)
+  affogata_love_muffins (~> 0.9.9)
   debug
   http
   pg (~> 1.1)
